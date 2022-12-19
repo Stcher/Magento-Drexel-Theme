@@ -1,0 +1,143 @@
+//
+//  Desktop
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    //Home Page Brands header lines
+    .hp-brand-headings {
+        position: relative;
+
+        span:before,
+        span:after {
+            background: @color-drexel_lines;
+            content: '';
+            height: 1px;
+            margin-left: 8px;
+            overflow: hidden;
+            position: absolute;
+            top: 51%;
+            text-align: right;
+            width: 50%;
+        }
+
+        span:before {
+            margin-left: -50.5%;
+            text-align: right;
+        }
+    }
+
+    .banner-text-style {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        p {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    // November Sale Banner
+    .sale-banner {
+        .smooth-hover(ease-in-out .3s);
+
+        &:hover{
+            cursor: pointer;
+            filter: brightness(70%);
+        }
+    }
+
+
+    // Links bottom underline in slides and banners
+
+    .pagebuilder-banner-wrapper [data-element="content"] a,
+    .pagebuilder-slide-wrapper [data-element="content"] a {
+        border-bottom: 1.5px solid;
+        padding-bottom: 5px;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    // Slider pages text position
+
+    .hp-slider-page {
+        position: relative;
+
+        .pagebuilder-slide-wrapper [data-element="content"] {
+            position: absolute;
+            left: 15%;
+            bottom: 40%;
+        }
+
+    }
+
+    .hp-slider-page {
+        p:nth-child(1) {
+            letter-spacing: 5px;
+        }
+    }
+
+    // Banner pages text position
+    .banner-text-style {
+        p:nth-child(1) {
+            letter-spacing: 5px;
+        }
+
+        p {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+    .pagebuilder-banner-wrapper [data-element="content"] {
+        position: absolute;
+        top: 25%;
+        left: 35%;
+        margin-left: 75px;
+    }
+}
+
+//
+//  Mobile (Screen S)
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .hp-slider-page {
+        position: relative;
+
+        .pagebuilder-slide-wrapper [data-element="content"] {
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+            width: 40%;
+        }
+    }
+}
+
+//
+//  Mobile (Screen M)
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .hp-slider-page {
+        position: relative;
+
+        .pagebuilder-slide-wrapper [data-element="content"] {
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+            width: 40%;
+        }
+    }
+    .pagebuilder-banner-wrapper [data-element="content"] {
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        margin-left: 95px;
+        width: 45%;
+    }
+}
