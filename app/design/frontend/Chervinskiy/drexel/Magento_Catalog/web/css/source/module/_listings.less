@@ -90,7 +90,7 @@
             button {
                 position: relative;
                 border: none;
-                border-bottom: 1px solid @color-drexel_title;
+                border-bottom: 1px solid @color-drexel_title !important; // Did it because of overrides from PageBuilder
                 border-radius: 0;
                 text-transform: uppercase;
                 font-size: 14px;
@@ -377,6 +377,57 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+    .hp_our-project-heading {
+        margin-left: 2rem;
+    }
+
+    .hp-our-products {
+        .product-item-actions .actions-primary + .actions-secondary {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 15px 10px;
+            position: absolute;
+            bottom: 0;
+            left: 12rem;
+            opacity: 0;
+        }
+        .actions-primary {
+            opacity: 0;
+        }
+        .product-item-actions {
+            button {
+                position: relative;
+                right: 0;
+            }
+        }
+
+        // Animation for price and button sections
+        .product-item {
+            &:hover {
+                .product-item-actions .actions-primary + .actions-secondary {
+                    transition: ease-out 0.4s;
+                    transform: translate(0, -18.5rem);
+                    opacity: 1;
+                    z-index: 1;
+                }
+                .actions-primary {
+                    opacity: 1;
+                }
+                .price-box,
+                .price-final_price {
+                    transition: ease-out 0.4s;
+                    opacity: 0;
+                    transform: translate(95%, 0);
+                }
+                button {
+                    transform: translate(95%, 0);
+                }
+            }
+        }
+    }
+
     .products-list .product {
         &-item {
             table-layout: fixed;
