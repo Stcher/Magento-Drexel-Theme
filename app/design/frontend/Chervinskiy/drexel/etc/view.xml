@@ -57,7 +57,6 @@
                 <height>150</height>
             </image>
             <image id="new_products_content_widget_grid" type="small_image">
-<!--                my width-->
                 <width>640</width>
                 <height>794</height>
             </image>
