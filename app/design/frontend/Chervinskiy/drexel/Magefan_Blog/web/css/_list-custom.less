@@ -1,0 +1,98 @@
+//
+// Common
+// _____________________________________________
+
+& when (@media-common = true) {
+
+    // Styling for blog section in a HomePage
+    .hp_blog {
+
+        .post-categories {
+            display: none !important; // Did it because there is no way to override vendor .css styles which located upper /src folder
+        }
+
+        .post-posed-date {
+            display: inline-block !important; // Did it because because of big nesting which can't be overrided without it
+        }
+
+        // Contained blog container in a one row and added some styles to description/title section
+        .post-list {
+            display: flex;
+        }
+
+        .post-list .post-header .post-title a {
+            color: @color-drexel_title;
+            text-transform: uppercase;
+            .lib-font-size(14px);
+            font-weight: 600;
+        }
+
+        .post-holder .post-header .post-info {
+            padding: 0 0 15px 0;
+        }
+
+        .post-list .post-description {
+            .lib-font-size(13px);
+            letter-spacing: .25px;
+            font-weight: 300
+        }
+
+        .post-text-hld p,
+        .post-info {
+            color: @color-drexel_subtitle;
+        }
+
+        .blog-widget-recent .post-description .post-text-hld {
+            min-height: auto;
+        }
+
+        // Added icon to date format and styles to it
+        .post-header {
+
+            .post-info {
+                .lib-icon-font(@icon-calendar);
+            }
+
+            .post-info::before {
+                .lib-font-size(15px);
+                margin-bottom: 5px;
+                padding-right: 5px;
+            }
+        }
+
+        // Hide "|" symbol which appears after date format
+        .post-holder .post-header .post-info .item::after {
+            content: '';
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .post-view {
+        width: 100%;
+    }
+
+    .hp-blog-heading {
+        margin-left: 2rem;
+    }
+
+    .hp_blog {
+        padding: 25px;
+
+        .post-list {
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .post-list .post-description {
+            .lib-font-size(15px);
+        }
+    }
+}
+
+
