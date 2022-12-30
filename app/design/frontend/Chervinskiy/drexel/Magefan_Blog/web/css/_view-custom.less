@@ -30,7 +30,7 @@
 
     .breadcrumbs ul li a {
         &:hover {
-            transition: ease-out 0.4s;
+            transition: ease-out .4s;
             color: @color-drexel_title;
         }
     }
@@ -39,8 +39,8 @@
     blockquote {
         border-left: 5px solid @color-drexel_subtitle;
         color: @color-drexel_blockquote;
-        .lib-font-size(16px);
-        line-height: 30px;
+        .lib-font-size(16);
+        .lib-line-height(30);
         padding: 0 30px;
         font-style: normal;
         margin: 0 0 20px 0;
@@ -48,14 +48,14 @@
 
     // Did it because there is no way to override vendor .css styles which located upper /src folder
     .post-holder .post-header .post-info .label {
-        font-weight: 100 !important;
+        font-weight: @font-weight__hairline !important;
     }
 
     // Added styles to description section
     .post-content {
         .post-info {
             .label {
-                font-weight: 100;
+                font-weight: @font-weight__hairline;
                 color: @color-drexel_subtitle;
             }
         }
