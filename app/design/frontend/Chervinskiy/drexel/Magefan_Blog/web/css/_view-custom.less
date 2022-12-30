@@ -1,0 +1,68 @@
+//
+// Common
+// _____________________________________________
+
+& when (@media-common = true) {
+
+    // Styling for inner blog page with full description
+    .page-layout-2columns-right, .column.main, .post-view {
+        width: auto;
+    }
+
+    .post-view {
+        width: 70%;
+    }
+
+    .post-posed-date {
+        display: none !important; // Did it because because of big nesting which can't be used without it
+    }
+
+    // Hide title and icons
+    .page-title-wrapper,
+    .mf-blog-icon.mfbi-folder {
+        display: none;
+    }
+
+    // Make description page a bit smaller in height, it'll remove whitespace at the bottom
+    .page-wrapper {
+        min-height: 50vh;
+    }
+
+    .breadcrumbs ul li a {
+        &:hover {
+            transition: ease-out .4s;
+            color: @color-drexel_title;
+        }
+    }
+
+    // Blockquote styling
+    blockquote {
+        border-left: 5px solid @color-drexel_subtitle;
+        color: @color-drexel_blockquote;
+        .lib-font-size(16);
+        .lib-line-height(30);
+        padding: 0 30px;
+        font-style: normal;
+        margin: 0 0 20px 0;
+    }
+
+    // Did it because there is no way to override vendor .css styles which located upper /src folder
+    .post-holder .post-header .post-info .label {
+        font-weight: @font-weight__hairline !important;
+    }
+
+    // Added styles to description section
+    .post-content {
+        .post-info {
+            .label {
+                font-weight: @font-weight__hairline;
+                color: @color-drexel_subtitle;
+            }
+        }
+        .post-header {
+            a {
+                color: @color-drexel_title;
+            }
+        }
+    }
+}
