@@ -1,5 +1,5 @@
 //  Fonts
-@font-family-name__base: 'Poppins';
+@font-family-name__base: 'Poppins', 'Oswald';
 @font-family__base: @font-family-name__base, @font-family__sans-serif;
 
 //
@@ -40,6 +40,37 @@
     .lib-font-face(
         @family-name: 'Poppins',
         @font-path: '@{baseDir}fonts/Poppins/Poppins-Bold',
+        @font-weight: 700,
+        @font-style: normal,
+        @font-display: swap
+    );
+    .lib-font-face(
+        @family-name: 'Oswald',
+        @font-path: '@{baseDir}fonts/Oswald/Oswald-Light',
+        @font-weight: 300,
+        @font-style: normal,
+        @font-display: swap
+    );
+
+    .lib-font-face(
+        @family-name: 'Oswald',
+        @font-path: '@{baseDir}fonts/Oswald/Oswald-Regular',
+        @font-weight: 400,
+        @font-style: normal,
+        @font-display: swap
+    );
+
+    .lib-font-face(
+        @family-name: 'Oswald',
+        @font-path: '@{baseDir}fonts/Oswald/Oswald-Semibold',
+        @font-weight: 600,
+        @font-style: normal,
+        @font-display: swap
+    );
+
+    .lib-font-face(
+        @family-name: 'Oswald',
+        @font-path: '@{baseDir}fonts/Oswald/Oswald-Bold',
         @font-weight: 700,
         @font-style: normal,
         @font-display: swap

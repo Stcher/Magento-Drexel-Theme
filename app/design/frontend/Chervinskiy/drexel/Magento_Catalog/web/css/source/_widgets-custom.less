@@ -1,0 +1,64 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .hp-products-grid {
+        width: 25%; // Make grid section a bit smaller, now it can be displayed only in a column
+
+        // Make all text uppercase, change hover effect and added font to it
+        .product-item-name {
+            width: 20rem;
+            text-transform: uppercase;
+        }
+
+        .product-item-link {
+            &:hover {
+                transition: ease-out 0.4s;
+                color: @color-drexel_border__link;
+                text-decoration: none;
+            }
+        }
+
+        .price-box,
+        .price
+        {
+            font-family: 'Oswald';
+            font-size: 18px;
+        }
+
+        // Hide all actions which not needed in this section
+        .price-label,
+        .old-price,
+        .actions-primary,
+        .actions-secondary {
+            display: none !important; // Did it because of big nesting in PageBuilder which can't be overrided
+        }
+
+        // Align all content in containers in a row and make correct photo size
+        .product-item-info {
+            display: flex;
+
+            .product-image-container,
+            .product-item-photo {
+                width: 110px;
+                margin-right: 2rem;
+            }
+        }
+
+    }
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .hp-products-grid-heading,
+    .hp-products-grid {
+        margin-left: 2rem;
+    }
+}
