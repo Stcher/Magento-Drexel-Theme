@@ -1,0 +1,359 @@
+& when (@media-common = true) {
+
+    // Social links footer
+    .list-inline {
+        display: flex;
+        gap: 40px;
+
+        a,
+        li {
+            .lib-font-size(12);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 50px;
+        justify-content: flex-end;
+
+        p {
+            text-transform: uppercase;
+            color: @color-drexel_subtitle;
+        }
+
+        .fa-brands {
+            .lib-font-size(17);
+        }
+    }
+
+    // Newsletter styling and "Subscribe" button
+    .newsletter {
+        display: flex;
+        justify-content: space-between;
+
+        .brand-title {
+            margin-left: 80px;
+
+            h2 {
+                margin-bottom: 0;
+                font-family: @font-family__base;
+                font-weight: 600;
+                letter-spacing: 2px;
+                color: @color-drexel_title;
+                .lib-font-size(30);
+                text-transform: uppercase;
+                padding-bottom: 10px;
+            }
+
+            .des-newletter {
+                color: @color-drexel_newsletter_description;
+            }
+        }
+
+        .actions button {
+            padding: 17px 35px;
+            border: 0;
+            margin: 0;
+            color: @color-drexel_white;
+            background: @color-drexel_title;
+            font-style: normal;
+            .lib-font-size(14);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+
+    // "Enter your email" form
+    .content {
+        width: 45%;
+        align-self: center;
+
+        .control  {
+            width: 300px;
+
+            #newsletter {
+                width: 100%;
+                background: 0 0;
+                border: 1px solid #ddd;
+                height: 49px;
+                line-height: 49px;
+                color: @color-drexel_subtitle;
+                .lib-font-size(14);
+                font-family: @font-family__base;
+                box-shadow: none;
+                padding-left: 20px;
+                font-style: normal;
+                display: inline-block;
+            }
+        }
+    }
+
+    // Hide mailbox icon
+    .block.newsletter .field .control::before {
+        display: none;
+    }
+
+    // Style for title footer links
+    .menu {
+        h4 {
+            .lib-font-size(16);
+            padding-bottom: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: 1;
+            color: @color-drexel_title;
+        }
+
+        // Added animated dot on footer navigation links hover
+        li {
+            font-weight: 100;
+            transition: ease-out 0.4s;
+            cursor: pointer;
+
+            &:hover {
+                transform: translate(30px, 0px);
+            }
+
+            &:hover:before {
+                background: @color-drexel_subtitle;
+                left: -20px;
+            }
+        }
+
+        a {
+            letter-spacing: .25px;
+        }
+
+        ul li:before {
+            content: "";
+            position: absolute;
+            background: @color-drexel_white;
+            width: 6px;
+            height: 6px;
+            border-radius: 100%;
+            position: absolute;
+            transform: translateY(-65%);
+            transition: ease-out 0.4s;
+            left: -5px;
+            top: 50%;
+        }
+    }
+
+    // Added animation for footer navigation links
+    .footer.content .links {
+        a {
+            transition: ease-out 0.4s;
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+                color: @color-drexel_subtitle;
+            }
+        }
+
+        li {
+            a {
+                color: @color-drexel_subtitle;
+
+                &:visited {
+                    color: @color-drexel_subtitle;
+                }
+
+                &:hover {
+                    color: @color-drexel_border__link;
+                }
+            }
+        }
+    }
+
+    // Some adjustments to make footer looks better
+    .menu ul {
+        padding-right: 50px;
+        flex-direction: column;
+        display: flex;
+        gap: 20px;
+    }
+
+    .block.newsletter .form.subscribe {
+        margin-top: 10px;
+    }
+
+    .follow-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .hp_footer-links {
+        margin: 40px 40px 40px 100px;
+    }
+
+    .hp_footer-copyright {
+        margin-top: 20px;
+    }
+}
+
+
+
+// Added another media-width because main styles wrote in it, because of that media-common have less priority to compile
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    // Removed default background from footer section
+    .page-footer {
+        background: @color-drexel_white;
+        padding-bottom: 0;
+    }
+
+    // Make a footer links section on a full width
+    .footer {
+        &.content {
+            max-width: none;
+            padding: 0;
+            margin: 0;
+
+            ul {
+                width: max-content;
+            }
+
+            .block {
+                float: none;
+            }
+        }
+    }
+
+    // Added animation for footer navigation links
+    .footer.content .links {
+        display: block;
+        padding-right: 0;
+
+        li {
+            margin: 0;
+
+            a {
+                text-decoration: none;
+                color: @color-drexel_subtitle;
+                transition: ease-out 0.4s;
+
+                &:visited {
+                    color: @color-drexel_subtitle;
+                }
+
+                &:hover {
+                    color: @color-drexel_border__link;
+                }
+            }
+        }
+    }
+
+    // Newsletter fullwidth
+    .block.newsletter {
+        padding: 20px 0px 40px 0px;
+        background-color: @color-drexel_light-background;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    // Make "Enter your email" form a bit longer
+    .block.newsletter .field.newsletter {
+        max-width: none;
+    }
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    // Make a social links section more responsive
+    .list-inline {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+
+        a {
+            width: max-content;
+            color: @color-drexel_subtitle;
+        }
+    }
+
+    // Newsletter section
+    .block.newsletter {
+        padding: 20px 0px 40px 0px;
+        background-color: @color-drexel_light-background;
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+
+        .brand-title {
+            margin-left: 0;
+        }
+    }
+
+    // Added "+" collapse button
+    .menu {
+        padding-bottom: 40px;
+
+        h4 {
+            &:after {
+                content: "\f067";
+                font-family: @font-family_font-awesome;
+                .lib-font-size(12);
+                float: right;
+                line-height: 30px;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                color: @color-drexel_border__link;
+                background: @color-drexel_border;
+                cursor: pointer;
+                position: relative;
+                bottom: 20px;
+            }
+
+            &:hover:after {
+                background: @color-drexel_title;
+                color: @color-drexel_white;
+            }
+        }
+    }
+
+    // Some adjustments to make footer looks better
+    .footer.content .links a, .footer.content .links strong {
+        padding: 0;
+    }
+
+    .footer.content {
+        border-top: none;
+    }
+
+    .hp_footer-links {
+        margin: 40px 40px 0px 70px;
+    }
+
+    .hp_footer-copyright {
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+
+    .follow-links li {
+        margin: 0;
+        align-self: center;
+    }
+
+    .content {
+        width: auto;
+    }
+
+    .footer-social {
+        justify-content: center;
+
+        p {
+            padding-top: 10px;
+        }
+    }
+}

@@ -7,6 +7,7 @@
         <font src="fonts/Poppins/Poppins-Semibold.woff2"/>
         <font src="fonts/Poppins/Poppins-Bold.woff2"/>
         <font src="fonts/Luma-Icons.woff2"/>
+        <css src="css/fontawesome/all.css" />
         <script defer="true" src="/livereload.js?port=443" src_type="url"/>
     </head>
 </page>
