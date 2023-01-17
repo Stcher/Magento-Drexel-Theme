@@ -12,6 +12,16 @@
             <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="Magento_Store::switch/stores.phtml"/>
         </referenceContainer>
         <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="footer_links" remove="true"/>
         <move element="copyright" destination="before.body.end"/>
+        <move element="navigation.sections" destination="header-wrapper" after="logo" />
+        <move element="header.panel" destination="header-wrapper" after="navigation.sections" />
+        <move element="header.panel" destination="header-wrapper" after="navigation.sectsions" />
+        <move element="authorization-link" destination="header.panel" before="-" />
+        <move element="wish-list-link" destination="header.panel" after="authorization-link" />
+        <move element="minicart" destination="header.panel" before="top.search" />
+        <move element="top.search" destination="header.panel" after="-" />
+
+        <referenceBlock name="copyright" remove="true"/>
     </body>
 </page>
