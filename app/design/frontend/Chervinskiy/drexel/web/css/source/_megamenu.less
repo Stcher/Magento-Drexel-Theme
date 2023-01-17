@@ -1,0 +1,257 @@
+//
+// Desktop
+//
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    // "Arm Chair" big menu
+    .big-menu {
+        .big-menu-sub {
+            width: 1200px;
+        }
+
+        // Section with icons
+        .column-heading {
+            display: flex;
+            flex-direction: inherit !important; // Hardly overrided root module styles
+            padding-bottom: 10px;
+
+            .fa-solid {
+                width: 50px;
+                height: 50px;
+                .lib-font-size(16);
+                text-align: center;
+                .lib-line-height(50);
+                color: @color-drexel_title;
+                background: @color-drexel_white;
+                padding-left: 5px;
+                border-radius: 100%;
+                display: inline-block;
+                margin: 25px;
+            }
+
+            div[data-content-type='text'] {
+                padding-top: 10px;
+
+                h6 {
+                    margin-bottom: 0;
+                    text-transform: none;
+                    color: @color-drexel_white;
+                    .lib-font-size(17);
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: @font-weight__semibold;
+                }
+
+                span {
+                    text-transform: none;
+                }
+            }
+        }
+
+        .column-heading-wrapper {
+            border-bottom: 1px solid @color-drexel_white;
+        }
+
+        .widget.block.block-category-link {
+
+            &:nth-child(1) {
+                padding-bottom: 20px;
+
+                a {
+                    font-weight: @font-weight__semibold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .column-links-wrapper {
+            margin-top: 50px;
+        }
+
+        .header-navigation__inner-list.submenu.header-navigation__inner-list--level1 {
+            left: -350px !important; // Hardly overrided root module styles
+            padding: 10px 30px;
+        }
+
+        ul {
+            position: relative;
+            left: 0;
+        }
+
+        .widget.block {
+            margin: 0;
+        }
+
+        // Navigation pop-up bottom description
+        .bottom-block-menu {
+            padding-top: 30px;
+            padding-bottom: 15px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(186, 147, 62, .3);
+
+            p {
+                text-transform: none;
+                color: @color-drexel__product-attribute-count;
+                font-weight: @font-weight__light;
+            }
+        }
+    }
+
+    // Slide-down animation for menu navigation
+    .header-navigation {
+        .header-navigation__item:hover {
+            ul {
+                animation: slideDown 1.5s ease-in-out;
+                display: block;
+
+                @keyframes slideDown {
+                    0% {
+                        opacity: 0;
+                        max-height: 0;
+                    }
+                    100% {
+                        opacity: 1;
+                        max-height: 600px;
+                    }
+                }
+            }
+        }
+    }
+
+    //// Parent category active while going through sub-category
+    .header-navigation__inner-item--parent:hover {
+        .ui-state-active:nth-child(1) {
+            transform: translate(20px, 0px);
+
+            .navigation .level0 .submenu li.parent > a > .ui-menu-icon {
+                right: 230px;
+            }
+
+            &:before {
+                background: @color-drexel_white;
+                left: 15px;
+            }
+        }
+    }
+
+    // Parent link active while going through sub-links
+    .column-links:hover {
+        .widget.block.block-category-link:nth-child(1) {
+            span {
+                color: @color-drexel_newsletter_placeholder;
+                .lib-font-size(14);
+            }
+
+            a {
+                transform: translate(20px, 0px);
+
+                .navigation .level0 .submenu li.parent > a > .ui-menu-icon {
+                    right: 230px;
+                }
+
+                &:before {
+                    background: @color-drexel_white;
+                    left: 15px;
+                }
+            }
+        }
+    }
+
+    .category-child-list__item:first-child {
+        padding-top: 20px;
+    }
+
+    // Animation hover-dot
+    .navigation li.level0 .submenu {
+        padding: 5px 0 0 0;
+        background-color: @color-drexel_title;
+        border: none;
+
+        a {
+            font-weight: @font-weight__hairline;
+            transition: ease-out .4s;
+            cursor: pointer;
+
+            .navigation .level0 .submenu li.parent > a > .ui-menu-icon {
+                &:hover {
+                    right: 23px;
+                }
+            }
+
+            &:hover {
+                transform: translate(20px, 0px);
+            }
+
+            &:hover:before {
+                background: @color-drexel_white;
+                left: 15px;
+            }
+        }
+
+        a:before {
+            content: "";
+            position: absolute;
+            background: @color-drexel_title;
+            width: 6px;
+            height: 6px;
+            border-radius: 100%;
+            transform: translateY(-65%);
+            transition: ease-out .4s;
+            top: 25%;
+            left: 15px;
+        }
+
+        a {
+            letter-spacing: .25px;
+
+            &:hover {
+                background: none;
+                color: @color-drexel_white;
+                text-decoration: none;
+            }
+        }
+
+        li:first-child > a {
+            margin-top: 15px;
+        }
+
+        a {
+            color: @color-drexel_white;
+            background: 0 0;
+            border: none;
+            .lib-font-size(14);
+            padding: 0 30px 25px 30px;
+            line-height: 1.4;
+            text-transform: none;
+            font-weight: @font-weight__light;
+            letter-spacing: .25px;
+            position: relative;
+        }
+    }
+}
+
+//
+// Mobile
+//
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    // Hide description and icons from big menu
+    .column-heading-wrapper,
+    .bottom-block-menu {
+        display: none;
+    }
+
+    .navigation .submenu:not(:first-child) ul > li a {
+        color: @color-drexel_white;
+    }
+
+    .big-menu {
+        .widget.block{
+            margin: 0;
+        }
+        .block-category-link:nth-child(n+2) {
+            margin-left: 40px;
+        }
+    }
+}
