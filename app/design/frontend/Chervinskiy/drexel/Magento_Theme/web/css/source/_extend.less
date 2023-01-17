@@ -1,0 +1,419 @@
+//
+//  Common
+//
+
+& when (@media-common = true) {
+
+    .nav-sections {
+        background-color: rgba(255, 255, 255,.95);
+        background: transparent;
+        display: flex;
+        margin-right: 70px;
+
+        &:after {
+            .nav-sections {
+                .lib-icon-font(@icon-search);
+            }
+        }
+    }
+
+    #search_mini_form {
+        display: block;
+
+        .actions {
+            display: none;
+        }
+    }
+
+    #search {
+        min-width: 370px;
+        height: 43px;
+        .lib-line-height(43);
+        position: absolute;
+        z-index: 1000;
+        padding-left: 20px;
+        border-radius: 0;
+        .lib-font-size(14);
+        text-align: left;
+        list-style: none;
+        background-color: @color-drexel_title;
+        border: 1px solid rgba(210,210,210,.175);
+        color: @color-drexel_subtitle;
+        top: 30px;
+        left: -355px;
+    }
+
+    // Cart Pop-up menu
+    .minicart-wrapper {
+        .action.showcart .text {
+            position: unset;
+            text-transform: uppercase;
+        }
+
+        .block-minicart {
+            padding: 50px 50px 70px;
+
+            strong {
+                font-weight: @font-weight__hairline;
+                text-transform: none;
+                color: @color-drexel_product-text;
+            }
+        }
+    }
+
+    .minicart-wrapper .action.showcart::before,
+    .minicart-wrapper .action.showcart.active::before {
+        content: none;
+    }
+
+    .block-search .control {
+        border-top: none;
+    }
+}
+
+//
+// Desktop
+//
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    // Animation for search input
+    .header.panel {
+        .control {
+            position: absolute;
+            top: 15px;
+        }
+
+        .block-search .action.search::before,
+        .control,
+        button,
+        #search {
+            max-height: 0;
+            border: none;
+            overflow: hidden;
+            transition: max-height ease-out 2s;
+        }
+
+        .active {
+            transition: max-height ease-out 2s;
+
+            .block-search .action.search::before,
+            .control,
+            button,
+            #search {
+                max-height: 200px;
+                border: none;
+                overflow: visible;
+                transition: max-height ease-out 2s;
+            }
+        }
+
+        a, .alink {
+            color: @color-drexel_title;
+        }
+
+        a:visited, .alink:visited {
+            color: @color-drexel_title;
+            text-decoration: none;
+        }
+
+        a:hover, .alink:hover {
+            color: @color-drexel_subtitle;
+            text-decoration: none;
+        }
+    }
+
+    .header.content {
+        max-width: none;
+    }
+
+    // Middle navigation menu
+    .navigation {
+        background-color: rgba(255, 255, 255,.95);
+
+        .level0.parent > .level-top > .ui-menu-icon {
+            display: none;
+        }
+    }
+
+    .navigation a,
+    .header.panel a {
+        transition: ease-out 0.4s;
+    }
+
+    .nav-sections-item-content > .navigation {
+        background-color: transparent;
+    }
+
+    // Search form
+    .block-search {
+        width: 25px;
+        bottom: 5px;
+        padding-left: 0;
+
+        .action.search {
+            top: 46px;
+            z-index: 11111;
+            right: 15px;
+            width: 50px;
+            height: 38px;
+
+            &:hover {
+                background: @color-drexel_ligher-black;
+            }
+
+            &:before,
+            &:hover:before {
+                color: @color-drexel_white;
+                font-weight: @font-weight__semibold;
+            }
+        }
+
+        .label::before {
+            .lib-font-size(16);
+        }
+
+        .field.search .label {
+            position: relative;
+            width: 1px;
+            right: 30px;
+            margin: 0;
+            overflow: visible;
+        }
+    }
+
+    .block.block-content:active {
+        #search {
+            display: block;
+        }
+    }
+
+    .action.search {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    .block-search .action.search.disabled,
+    .block-search .action.search[disabled],
+    fieldset[disabled] .block-search .action.search {
+        opacity: 1;
+    }
+
+    .minicart-wrapper {
+        margin-left: 0;
+    }
+
+    // Make navbar sticky to scroll and match him to design
+    .page-header {
+        margin: 15px 0 15px 0;
+        position: sticky;
+        background-color: rgba(255,255,255,.95);
+        z-index: 11111111;
+        width: -moz-available;
+        top: 0;
+
+        .header.panel {
+            margin-right: 0;
+        }
+
+        .logo img {
+            max-width: fit-content;
+        }
+    }
+
+    .header.content,
+    .page-header .header.panel {
+        display: flex;
+        text-transform: uppercase;
+        gap: 20px;
+
+       .link {
+            list-style: none;
+        }
+    }
+
+    .header.panel > .header.links,
+    .page-header .panel.wrapper {
+        display: none;
+    }
+
+    .navigation .level0 > .level-top {
+        .lib-line-height(40);
+    }
+}
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    // Attach header navigation to scroll
+    .page-header {
+        position: sticky;
+        background-color: rgba(255,255,255,.95);
+        z-index: 11111111;
+        top: 0;
+
+        .logo img {
+            max-width: fit-content;
+        }
+    }
+
+    .field.search {
+        #search {
+            min-width: 300px;
+        }
+
+        .label {
+            position: relative;
+            width: 0;
+            overflow: visible;
+        }
+
+        .label::before {
+            .lib-font-size(16);
+            margin: 0 0 0 -3px;
+        }
+    }
+
+    // Positioned list and make icon instead of text while user on mobile
+    .header.panel {
+        list-style: none;
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+        text-transform: uppercase;
+
+
+        // Cart icon
+        .minicart-wrapper,
+        .showcart {
+            a,
+            .active {
+                .lib-font-size(0);
+                .lib-icon-font(
+                    @icon-cart,
+                    @_icon-font-size: 17px,
+                    @_icon-font-margin: 5px
+                );
+            }
+
+        }
+
+        // Animation for search form
+        .control {
+            position: absolute;
+            top: 15px;
+        }
+
+        .block-search .action.search::before,
+        .control,
+        button,
+        #search {
+            max-height: 0;
+            border: none;
+            overflow: hidden;
+            transition: max-height ease-out 2s;
+        }
+
+        .active {
+            transition: max-height ease-out 2s;
+
+            .block-search .action.search::before,
+            .control,
+            button,
+            #search {
+                max-height: 200px;
+                border: none;
+                overflow: visible;
+            }
+        }
+
+        a, .alink {
+            color: @color-drexel_title;
+        }
+
+        a:visited, .alink:visited {
+            color: @color-drexel_title;
+            text-decoration: none;
+        }
+
+        a:hover, .alink:hover {
+            color: @color-drexel_subtitle;
+            text-decoration: none;
+        }
+    }
+
+    .navigation a,
+    .header.panel a {
+        transition: ease-out 0.4s;
+    }
+
+    .minicart-wrapper,
+    .block-search {
+        margin: 0;
+    }
+
+    // Changed default styling of hamburger menu
+    .nav-sections {
+        display: flex;
+
+        .navigation .level0,
+        .navigation li.level0:last-child {
+            border-bottom: 1px solid @color-drexel_border__link;
+            border-top: none;
+        }
+
+        .navigation .submenu:not(:first-child){
+            margin-left: 20px;
+            .lib-font-size(14);
+        }
+
+        .navigation .level0 > .level-top {
+            padding: 15px 35px 8px 15px;
+        }
+
+        .nav-sections-item-title {
+            display: none;
+            justify-content: center;
+        }
+
+        .nav-sections-item-content {
+            margin-left: 0;
+        }
+
+        .nav-sections-items,
+        .nav-sections-items a{
+            width: 100%;
+        }
+
+        a {
+            color: white;
+            font-weight: @font-weight__hairline;
+
+            &:hover {
+                color: @color-drexel_subtitle;
+            }
+        }
+
+    }
+
+    .nav-sections,
+    .navigation .level0 {
+        background: @color-drexel_title;
+    }
+
+    .navigation .parent .level-top::after {
+        right: 70px;
+    }
+
+    .content .control {
+        width: auto;
+    }
+}
