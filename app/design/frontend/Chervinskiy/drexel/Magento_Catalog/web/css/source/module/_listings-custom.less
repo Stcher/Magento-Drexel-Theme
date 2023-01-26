@@ -24,6 +24,31 @@
 
 & when (@media-common = true) {
 
+    // Change image while hover on product in grid view
+    .product-item {
+        .product-item-info {
+            position: relative;
+        }
+        &:hover {
+            .product-item-photo.product-hover {
+                opacity: 1;
+                transition: ease-out 0.4s;
+                overflow: inherit;
+                visibility: inherit;
+            }
+        }
+        .product-item-photo.product-hover {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition: ease-out 0.4s;
+            z-index: 1111;
+            width: -moz-available;
+            overflow: hidden;
+            visibility: hidden;
+        }
+    }
+
     // Our Products menu
     .hp-our-products,
     .products.wrapper.grid.products-grid {
@@ -64,6 +89,7 @@
             bottom: 0;
             left: 12rem;
             opacity: 0;
+            z-index: 99999999;
         }
 
         // Animation for price and button section
@@ -116,6 +142,7 @@
         .product-item-details {
             position: relative;
             text-align: center;
+            z-index: 9999;
 
             .product-item-inner {
                 position: absolute;

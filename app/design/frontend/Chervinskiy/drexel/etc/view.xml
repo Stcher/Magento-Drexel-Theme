@@ -26,6 +26,14 @@
                 <width>600</width>
                 <height>744</height>
             </image>
+            <image id="category_page_list_hover" type="hover_image">
+                <width>600</width>
+                <height>744</height>
+            </image>
+            <image id="category_page_grid_hover" type="hover_image">
+                <width>640</width>
+                <height>794</height>
+            </image>
             <image id="customer_account_my_tags_tag_view" type="small_image">
                 <width>100</width>
                 <height>100</height>
