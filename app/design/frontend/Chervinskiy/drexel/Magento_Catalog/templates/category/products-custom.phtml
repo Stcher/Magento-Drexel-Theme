@@ -1,0 +1,34 @@
+<?php
+/** @var Mageplaza\HelloWorld\ViewModel\SubCats $viewmodel */
+$viewmodel = $block->getViewModel();
+?>
+
+<?php if ($viewmodel->getCategories() && count($viewmodel->getCategories()) > 0): ?>
+    <div id="element" class="filter-options-item">
+        <div data-role="collapsible" class="filter-options-title">
+            <div data-role="trigger">
+                <span>Category</span>
+            </div>
+        </div>
+        <div data-role="content" class="filter-list">
+            <ol>
+                <?php foreach($viewmodel->getCategories() as $subcategory): ?>
+                    <li>
+                        <a href="<?= $subcategory->getUrl() ?>"><?= $subcategory->getName() ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init"> {
+            "#element": {
+            "accordionInit": {
+                "active": [1, 2],
+                "collapsible": true,
+                "openedState": "active",
+                "multipleCollapsible": true
+            }
+        }
+    }
+</script>

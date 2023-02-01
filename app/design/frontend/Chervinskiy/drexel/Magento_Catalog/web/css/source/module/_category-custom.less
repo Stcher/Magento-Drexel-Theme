@@ -43,6 +43,20 @@
 
         &-content {
             padding: 0;
+            display: none;
+        }
+    }
+
+    // Products category filter
+    .filter-list {
+        display: none;
+        ol {
+            list-style: none;
+            padding: 0;
+
+            a {
+                text-decoration: none;
+            }
         }
     }
 
@@ -264,6 +278,21 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+
+    // Products category filter
+    .filter-list {
+        display: none;
+
+        ol {
+            list-style: none;
+            padding: 10px 40px 0 10px;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
 
     // Positioning for hover image and pop-up buttons
     .products.list.items.product-items {
