@@ -15,6 +15,9 @@ use Magento\Framework\App\Action\Action;
 $_productCollection = $block->getLoadedProductCollection();
 /** @var \Magento\Catalog\Helper\Output $_helper */
 $_helper = $block->getData('outputHelper');
+$hoverimg = 'category_page_grid_hover';
+$imageDisplayAreaHover = "category_page_grid_hover";
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
 ?>
 <?php if (!$_productCollection->count()): ?>
     <div class="message info empty">
@@ -50,17 +53,32 @@ $_helper = $block->getData('outputHelper');
                      data-container="product-<?= /* @noEscape */ $viewMode ?>">
                     <?php
                     $productImage = $block->getImage($_product, $imageDisplayArea);
+                    $productImageHover = $block->getImage($_product, $imageDisplayAreaHover);
                     if ($pos != null) {
                         $position = 'left:' . $productImage->getWidth() . 'px;'
                             . 'top:' . $productImage->getHeight() . 'px;';
                     }
                     ?>
-                    <?php // Product Image ?>
-                    <a href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>"
-                       class="product photo product-item-photo"
-                       tabindex="-1">
-                        <?= $productImage->toHtml() ?>
-                    </a>
+                    <?php if ($block->getMode() === 'grid'):?>
+                        <a href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>"
+                           class="product photo product-item-photo"
+                           tabindex="-1">
+                            <?= $productImage->toHtml() ?>
+                        </a>
+                        <?php // Product Image Hover ?>
+                        <a href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>"
+                           class="product photo product-item-photo product-hover"
+                           tabindex="-1">
+                            <?= $productImageHover->toHtml() ?>
+                        </a>
+                    <?php else:?>
+                        <?php // Product Image ?>
+                        <a href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>"
+                           class="product photo product-item-photo"
+                           tabindex="-1">
+                            <?= $productImage->toHtml() ?>
+                        </a>
+                    <?php endif; ?>
                     <div class="product details product-item-details">
                         <?php $_productNameStripped = $block->stripTags($_product->getName(), null, true); ?>
                         <strong class="product name product-item-name">
