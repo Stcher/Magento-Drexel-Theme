@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="div.sidebar.main">
+            <block name="sidebar.filter" template="Magento_Catalog::category/products-custom.phtml" before="-">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Mageplaza\HelloWorld\ViewModel\SubCats</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
         <referenceContainer name="sidebar.additional">
             <block class="Magento\Cms\Block\Block" name="side-slidebar" before="-">
                 <arguments>
