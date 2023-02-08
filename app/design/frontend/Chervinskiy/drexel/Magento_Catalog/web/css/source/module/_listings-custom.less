@@ -51,7 +51,9 @@
 
     // Our Products menu
     .hp-our-products,
-    .products.wrapper.grid.products-grid {
+    .products.wrapper.grid.products-grid,
+    .products.wrapper.grid.products-grid.products-related,
+    .products.wrapper.grid.products-grid.products-upsell {
         .toproduct {
             .lib-icon-font(@icon-cart);
         }
@@ -95,6 +97,11 @@
         // Animation for price and button section
         .product-item {
             width: 300px !important; // Did it because of big nesting in PageBuilder which can't be overrided
+
+            button {
+                opacity: 0;
+            }
+
             &:hover {
                 .product-item-actions .actions-primary + .actions-secondary {
                     transition: ease-out 0.4s;
@@ -109,6 +116,7 @@
                 }
                 button {
                     transform: translate(50%, 0);
+                    opacity: 1;
                 }
             }
         }
