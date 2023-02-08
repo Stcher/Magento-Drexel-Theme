@@ -13,6 +13,8 @@
         </referenceContainer>
         <referenceBlock name="report.bugs" remove="true"/>
         <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true"/>
+        <!--Header-->
         <move element="copyright" destination="before.body.end"/>
         <move element="navigation.sections" destination="header-wrapper" after="logo" />
         <move element="header.panel" destination="header-wrapper" after="navigation.sections" />
