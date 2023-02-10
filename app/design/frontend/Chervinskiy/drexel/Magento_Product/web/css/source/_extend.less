@@ -3,6 +3,47 @@
 //  _____________________________________________
 & when (@media-common = true) {
 
+    // Quantity buttons
+    button,
+    a.action.primary {
+        border-radius: 1px;
+    }
+
+    .field.qty {
+        display: flex;
+        gap: 20px;
+
+        .product-social-links {
+            text-align: left;
+            padding-left: 35px;
+        }
+
+        label span {
+            text-transform: uppercase;
+        }
+        .control.quantity-contol {
+            display: flex;
+
+            #qty {
+                width: 200px;
+            }
+        }
+
+        .qty-down,
+        .qty-up {
+            background: #fff;
+        }
+    }
+
+    .fieldset {
+        .actions {
+            padding-left: 45px;
+            #product-addtocart-button {
+                width: 290px;
+            }
+        }
+    }
+
     // Product title
     #maincontent {
         .columns {
@@ -162,7 +203,7 @@
 
             .old-price .price-wrapper .price {
                 .lib-font-size(18);
-                @color-drexel_subtitle;
+                color: @color-drexel_subtitle;
                 font-weight: @font-weight__regular;
                 text-decoration: line-through;
             }
@@ -388,6 +429,10 @@
 //  _____________________________________________
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 
+    .product-social-links {
+        text-align: left;
+    }
+
     .products.wrapper.grid.products-grid.products-related .product-item-actions button {
         right: 15%;
     }
@@ -452,6 +497,10 @@
     .product.data.items .item.title a::after,
     product.data.items .item.title.active a::after {
         content: none;
+    }
+    
+    .breadcrumbs .item:not(:last-child)::after {
+        vertical-align: middle;
     }
 
     .product.info.detailed .product.data.items .item.title a {
