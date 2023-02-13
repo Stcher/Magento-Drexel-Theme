@@ -1,13 +1,13 @@
 var config = {
 
     deps: [
-        "js/example",
+        "js/example"
     ],
 
     map: {
         '*': {
             'select' : 'js/jquery.nice-select',
-            "accordionInit" : 'js/accordion-init'
+            "accordionInit" : 'js/accordion-init',
         }
     },
     "shim": {
