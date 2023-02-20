@@ -2,12 +2,22 @@
 //  Desktop
 //  ---------------------------------------------
 
+//Transition Mixin
+.smooth-hover (@value){
+    -o-transition: @value;
+    -ms-transition: @value;
+    -moz-transition: @value;
+    -webkit-transition: @value;
+    transition: @value;
+}
+
 & when (@media-common = true) {
 
     body {
         overflow-y: scroll;
         overflow-x: hidden;
     }
+
     // Home Page Brands header lines
     .hp-brand-headings {
         position: relative;
@@ -52,6 +62,19 @@
         }
     }
 
+    //Home Page Slider Buttons
+    .slick-dots li button {
+        border-radius: unset;
+        width: 10px;
+        height: 10px;
+        margin: 0 2px;
+        border: 2px solid @color-drexel_title;
+        background: @color-drexel_news;
+
+        &:hover {
+            background: @color-drexel_title;
+        }
+    }
 
     // Links bottom underline in slides and banners
 
