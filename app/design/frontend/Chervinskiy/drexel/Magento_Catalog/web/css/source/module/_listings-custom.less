@@ -32,7 +32,7 @@
         &:hover {
             .product-item-photo.product-hover {
                 opacity: 1;
-                transition: ease-out 0.4s;
+                transition: ease-out .4s;
                 overflow: inherit;
                 visibility: inherit;
             }
@@ -41,7 +41,7 @@
             position: absolute;
             top: 0;
             opacity: 0;
-            transition: ease-out 0.4s;
+            transition: ease-out .4s;
             z-index: 1111;
             width: -moz-available;
             overflow: hidden;
@@ -51,6 +51,7 @@
 
     // Our Products menu
     .hp-our-products,
+    .hp-our-products.products.wrapper.grid.products-grid .secondary-addto-links.actions-secondary,
     .products.wrapper.grid.products-grid,
     .products.wrapper.grid.products-grid.products-related,
     .products.wrapper.grid.products-grid.products-upsell {
@@ -67,8 +68,9 @@
         }
 
         .product-item-link {
+            transition: ease-out .4s;
             &:hover {
-                transition: ease-out 0.4s;
+                transition: ease-out .4s;
                 color: @color-drexel_border__link;
                 text-decoration: none;
             }
@@ -77,7 +79,7 @@
         .price-box {
             font-family: @font-family_drexel-oswald;
             .special-price .price {
-                font-size: 20px;
+                .lib-font-size(20);
             }
         }
 
@@ -85,13 +87,17 @@
         .product-item-actions .actions-primary + .actions-secondary {
             display: flex;
             flex-direction: column;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, .96);
             padding: 15px 10px;
             position: absolute;
             bottom: 0;
             left: 12rem;
             opacity: 0;
             z-index: 99999999;
+        }
+
+        .secondary-addto-links.actions-secondary {
+            transition: ease-out 0.4s; //
         }
 
         // Animation for price and button section
@@ -102,15 +108,21 @@
                 opacity: 0;
             }
 
+            .product-item-actions .actions-primary + .actions-secondary,
+            .price-box,
+            .price-final_price {
+                transition: ease-out .4s;
+            }
+
             &:hover {
                 .product-item-actions .actions-primary + .actions-secondary {
-                    transition: ease-out 0.4s;
+                    transition: ease-out .4s;
                     transform: translate(0, -22.5rem);
                     opacity: 1;
                 }
                 .price-box,
                 .price-final_price {
-                    transition: ease-out 0.4s;
+                    transition: ease-out .4s;
                     opacity: 0;
                     transform: translate(50%, 0);
                 }
@@ -129,19 +141,19 @@
                 border-bottom: 1px solid @color-drexel_title !important; // Did it because of overrides from PageBuilder
                 border-radius: 0;
                 text-transform: uppercase;
-                font-size: 14px;
+                .lib-font-size(14);
                 letter-spacing: 1px;
-                font-weight: 500;
+                font-weight: @font-weight__heavier;
                 color: @color-drexel_title;
                 right: 50%;
                 text-align: center;
                 margin: auto;
                 background: 0 0;
                 padding: 10px 0px;
-                transition: ease-out 0.4s;
+                transition: ease-out .4s;
                 &:hover {
                     background: 0 0;
-                    color: #222;
+                    color: @color-drexel_title;
                 }
             }
         }
@@ -159,8 +171,8 @@
 
             .old-price {
                 text-decoration: line-through;
-                font-weight: 400;
-                font-size: 18px;
+                font-weight: @font-weight__regular;
+                .lib-font-size(18);
             }
         }
     }
@@ -180,7 +192,7 @@
         .product-item-actions .actions-primary + .actions-secondary {
             display: flex;
             flex-direction: column;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, .96);
             padding: 15px 10px;
             position: absolute;
             bottom: 0;
@@ -203,7 +215,7 @@
         .product-item {
             &:hover {
                 .product-item-actions .actions-primary + .actions-secondary {
-                    transition: ease-out 0.4s;
+                    transition: ease-out .4s;
                     transform: translate(0, -18.5rem);
                     opacity: 1;
                     z-index: 1;
@@ -215,7 +227,7 @@
 
                 .price-box,
                 .price-final_price {
-                    transition: ease-out 0.4s;
+                    transition: ease-out .4s;
                     opacity: 0;
                     transform: translate(95%, 0);
                 }
