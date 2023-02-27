@@ -1,14 +1,18 @@
 define([
     'jquery',
-    'Magento_Checkout/js/model/payment/additional-validators'
+    'Magento_Checkout/js/model/payment/additional-validators',
+    'Magento_Checkout/js/action/redirect-on-success'
     ],
     function (
         $,
-        additionalValidators
+        additionalValidators,
+        redirectOnSuccessAction
     ) {
     'use strict';
 
     var mixin = {
+        redirectAfterPlaceOrder: true,
+
         /**
          * Place order.
          */
@@ -38,7 +42,6 @@ define([
                         }
                     ).always(
                     function () {
-                        $(".action.primary.checkout").text("Place Order");
                         self.isPlaceOrderActionAllowed(true);
                     }
                 );
