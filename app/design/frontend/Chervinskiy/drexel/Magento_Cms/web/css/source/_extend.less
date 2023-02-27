@@ -1,34 +1,4 @@
-
-
-
-//Transition Mixin
-.smooth-hover (@value){
-    -o-transition: @value;
-    -ms-transition: @value;
-    -moz-transition: @value;
-    -webkit-transition: @value;
-    transition: @value;
-}
-
-& when (@media-common = true) {
-
-    //Home Page Slider Buttons
-    .slick-dots li button {
-        border-radius: unset;
-        width: 10px;
-        height: 10px;
-        margin: 0 2px;
-        border: 2px solid @color-drexel_title;
-        background: @color-drexel_news;
-
-        &:hover {
-            background: @color-drexel_title;
-        }
-    }
-}
-
 @import '_homepage.less';
-//@import '_layout.less';
 
 
 
