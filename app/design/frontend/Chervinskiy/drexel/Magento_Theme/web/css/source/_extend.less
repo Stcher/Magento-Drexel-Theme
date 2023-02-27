@@ -42,7 +42,7 @@
         left: -355px;
     }
 
-    // Cart Pop-up menu
+    // Mini-Cart section
     .minicart-wrapper {
         .action.showcart .text {
             position: unset;
@@ -58,6 +58,36 @@
                 color: @color-drexel_product-text;
             }
         }
+    }
+
+    .minicart-wrapper .action.showcart .counter.qty {
+        background: @color-drexel_title;
+        color: @color-drexel_white;
+        border-radius: 2px;
+        display: inline-block;
+        margin: 0 0 0 3px;
+        min-width: 18px;
+        padding: 0 3px;
+        text-align: center;
+        white-space: normal;
+        overflow: unset;
+        height: 20px;
+        .lib-line-height(20);
+
+        .block-minicart {
+            padding: 50px 50px 30px;
+        }
+    }
+
+    .minicart-items-wrapper {
+        .product-image-container {
+            width: 75px !important;
+        }
+    }
+
+    .action.showcart.active,
+    .minicart-wrapper.active{
+        border: none;
     }
 
     .minicart-wrapper .action.showcart::before,
@@ -296,18 +326,14 @@
 
 
         // Cart icon
-        .minicart-wrapper,
-        .showcart {
-            a,
-            .active {
+        .action.showcart.active,
+        .action.showcart {
                 .lib-font-size(0);
                 .lib-icon-font(
                     @icon-cart,
                     @_icon-font-size: 17px,
                     @_icon-font-margin: 5px
                 );
-            }
-
         }
 
         // Animation for search form
@@ -351,6 +377,37 @@
         a:hover, .alink:hover {
             color: @color-drexel_subtitle;
             text-decoration: none;
+        }
+    }
+
+    // Mini-cart section
+    .action.showcart.active,
+    .minicart-wrapper.active {
+        padding: 0;
+    }
+
+    .minicart-wrapper {
+
+        .product-item-details {
+            text-align: left;
+        }
+
+        .action.showcart .counter.qty {
+            display: none;
+        }
+
+        .block-minicart {
+            margin-top: 12px;
+        }
+    }
+
+    .block-minicart {
+        .subtotal {
+            margin: 0 10px 10px;
+            text-align: center;
+        }
+        .items-total {
+            float: none;
         }
     }
 
