@@ -6,7 +6,9 @@ var config = {
 
     map: {
         '*': {
+            // Nice-Select library for drop-down menu
             'select' : 'js/jquery.nice-select',
+            // Accordion configuration for Accordion widget
             "accordionInit" : 'js/accordion-init'
         }
     },
