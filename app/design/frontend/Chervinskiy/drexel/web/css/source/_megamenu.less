@@ -261,10 +261,14 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 
-    // Hide description and icons from big menu
+    // Hide description, images and icons from big menu
     .column-heading-wrapper,
     .bottom-block-menu {
         display: none;
+    }
+
+    .arm-chair_image-block {
+        display: none !important;
     }
 
     .navigation .submenu:not(:first-child) ul > li a {

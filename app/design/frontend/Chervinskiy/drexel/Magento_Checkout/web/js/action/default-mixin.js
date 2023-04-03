@@ -1,7 +1,12 @@
+//
+// Change text in button from "Place Order" to "Loading" in Checkout page
+// -----------------------------------------------------------------------
+
 define([
     'jquery',
     'Magento_Checkout/js/model/payment/additional-validators',
-    'Magento_Checkout/js/action/redirect-on-success'
+    'Magento_Checkout/js/action/redirect-on-success',
+    'mage/translate'
     ],
     function (
         $,
@@ -19,7 +24,7 @@ define([
         placeOrder: function (data, event) {
             var self = this;
 
-            $(".action.primary.checkout").text("Loading");
+            $(".action.primary.checkout").text('Loading');
 
             if (event) {
                 event.preventDefault();

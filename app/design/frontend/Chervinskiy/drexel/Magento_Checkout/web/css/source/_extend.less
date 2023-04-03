@@ -1,0 +1,38 @@
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    // Active step color
+    .opc-progress-bar-item._active::before,
+    .opc-progress-bar-item._active > span::before {
+        background: @color-drexel_title;
+        border-color: @color-drexel_title;
+    }
+    .opc-progress-bar-item._active > span::after {
+        border-color: @color-drexel_gray;
+    }
+    .opc-wrapper .shipping-address-item.selected-item {
+        border-color: @color-drexel_title;
+    }
+    .opc-wrapper .shipping-address-item.selected-item::after {
+        background: @color-drexel_title;
+    }
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .opc-progress-bar-item._active::before,
+    .opc-progress-bar-item._active > span::before {
+        background: @color-drexel_title;
+        border-color: @color-drexel_title;
+    }
+    .opc-progress-bar-item._active > span::after {
+        border-color: @color-drexel_gray;
+    }
+    .opc-wrapper .shipping-address-item.selected-item {
+        border-color: @color-drexel_title;
+    }
+    .opc-wrapper .shipping-address-item.selected-item::after {
+        background: @color-drexel_title;
+    }
+
+}
